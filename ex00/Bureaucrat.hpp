@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:08:38 by ufo               #+#    #+#             */
-/*   Updated: 2025/06/06 12:02:39 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/20 14:14:28 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ private:
     const std::string _name;
     int _grade;
 
+    void validateGrade(const int grade);
+
 public:
     // Constructors
     Bureaucrat();
-    Bureaucrat(const std::string name, int grade);
+    Bureaucrat(const std::string& name, int grade);
     Bureaucrat(const Bureaucrat& other);
-    Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
     
     // Operator overload
