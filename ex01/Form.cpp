@@ -6,19 +6,20 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 08:58:14 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/25 21:35:17 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/25 22:08:47 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 //Constructors
 //
 Form:: Form(): _name("default"),  _gradeToSign(1), _gradeToExec(1), _isSigned(false) {
 }
 
-Form:: Form(const std::string name, int gradeToSign, int gradeToExec, bool isSigned):
-     _name(name),  _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _isSigned(isSigned) {
+Form:: Form(const std::string name, int gradeToSign, int gradeToExec):
+     _name(name),  _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _isSigned(false) {
     validateGrade(gradeToSign);
     validateGrade(gradeToExec);
 }

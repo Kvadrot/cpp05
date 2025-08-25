@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 08:58:38 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/25 21:34:32 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/25 22:09:04 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 #include <string>
-#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
     private:
@@ -29,7 +30,7 @@ class Form {
     public:
     //Constructors
         Form();
-        Form(const std::string name, int gradeToSign, int gradeToExec, bool isSigned);
+        Form(const std::string name, int gradeToSign, int gradeToExec);
         Form(const Form &other);
         ~Form();
 
@@ -54,5 +55,8 @@ class Form {
         int           getGradeToExec() const;
         void                beSigned(const Bureaucrat& bureaucrat);
 };
+
+
+std::ostream& operator<<(std::ostream& os, const Form& fo);
 
 #endif
