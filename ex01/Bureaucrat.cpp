@@ -6,11 +6,12 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:15:23 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/20 14:50:51 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/25 22:22:08 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 //
 //Constructors
@@ -61,6 +62,9 @@ const char* Bureaucrat:: GradeTooLowException:: what() const throw() {
     return "Grade is too low";
 }
 
+
+
+
 // Private func
 
 void Bureaucrat:: validateGrade(const int grade) {
@@ -70,6 +74,9 @@ void Bureaucrat:: validateGrade(const int grade) {
         throw(Bureaucrat:: GradeTooLowException());
     }
 }
+
+
+
 
 // Public func
 
@@ -91,4 +98,12 @@ void Bureaucrat:: decrementGrade() {
     this->_grade += 1;
 }
 
-
+void Bureaucrat:: signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << this->_name << " signed " << form.getName() << "\n";
+    } catch (std::exception& e) {
+         std::cout << this->_name << " couldn’t sign " 
+                  << form.getName() << " because " << e.what() << "\n";
+    }
+}

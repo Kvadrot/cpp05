@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 08:58:14 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/25 22:08:47 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/25 22:27:58 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Form& Form:: operator=(const Form &other) {
 
 std::ostream& operator<<(std::ostream& os, const Form& fo) {
      os << "Form: " << fo.getName() << ", grade to exec " << fo.getGradeToExec()
-          << ", grade to sign " << fo.getGradeToSign() << " ,is signed" << fo.getIsSigned() << ".\n";
+          << ", grade to sign " << fo.getGradeToSign() << " ,is signed " << fo.getIsSigned() << ".\n";
      return os;
 }
 

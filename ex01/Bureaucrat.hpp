@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:08:38 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/25 21:57:20 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/25 22:23:36 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+
+class Form;
 
 class Bureaucrat {
 private:
@@ -39,6 +41,8 @@ public:
     int getGrade() const;
     void incrementGrade();
     void decrementGrade();
+    
+    void signForm(Form& form);
     
     // Exception classes
     class GradeTooHighException : public std::exception {
