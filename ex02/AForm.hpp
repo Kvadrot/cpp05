@@ -25,14 +25,18 @@ class AForm {
         const int _gradeToExec;
         bool _isSigned;
 
-        void validateGrade(const int grade);
+        static void validateGrade(const int grade);
+
+
+    protected:    
+        virtual void doExecute(Bureaucrat const & executor) const = 0;
 
     public:
     //Constructors
         AForm();
-        AForm(const std::string name, int gradeToSign, int gradeToExec);
+        AForm(const std::string &name, int gradeToSign, int gradeToExec);
         AForm(const AForm &other);
-        ~AForm();
+        virtual ~AForm();
 
     // Operator overload
         AForm& operator=(const AForm& other);
@@ -42,18 +46,24 @@ class AForm {
             public:
                 virtual const char* what() const throw();
         };
-        
+
         class GradeTooLowException: public std::exception {
             public:
                 virtual const char* what() const throw();
         };
 
+        class FormIsNotSignedException: public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
+        
     // Funcs
         const std::string&  getName() const;
-        bool          getIsSigned() const;
-        int           getGradeToSign() const;
-        int           getGradeToExec() const;
+        bool                getIsSigned() const;
+        int                 getGradeToSign() const;
+        int                 getGradeToExec() const;
         void                beSigned(const Bureaucrat& bureaucrat);
+        void                execute(Bureaucrat const & executor) const;
 };
 
 
