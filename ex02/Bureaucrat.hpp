@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:08:38 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/28 10:26:12 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/31 10:35:28 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ public:
     void decrementGrade();
     
     void signAForm(AForm& form);
+    void executeForm(AForm const & form);
     
     // Exception classes
     class GradeTooHighException : public std::exception {

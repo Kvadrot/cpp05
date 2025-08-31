@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:15:23 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/28 10:27:38 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/31 10:44:43 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,3 +107,14 @@ void Bureaucrat:: signAForm(AForm& form) {
                   << form.getName() << " because " << e.what() << "\n";
     }
 }
+
+void Bureaucrat::  executeForm(AForm const & form) {
+    try {
+        form.execute(*this);
+        std::cout << this->_name << " successfully executed the form " << form.getName() << std::endl;
+    } catch (std::exception &err) {
+        std::cout << this->getName() << " couldn’t execute " 
+                  << form.getName() << " because " << err.what() << std::endl;
+    }
+}
+
