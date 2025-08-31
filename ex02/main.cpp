@@ -6,7 +6,7 @@
 /*   By: ufo <ufo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 10:08:09 by ufo               #+#    #+#             */
-/*   Updated: 2025/08/31 13:41:16 by ufo              ###   ########.fr       */
+/*   Updated: 2025/08/31 14:24:18 by ufo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
 static void title(const char* t) {
@@ -53,6 +54,31 @@ int main() {
     RobotomyRequestForm roboFormWeak("Fry");
     weakBur.signAForm(roboFormWeak);     // should succeed (needs 72 to sign)
     weakBur.executeForm(roboFormWeak);   // should fail (needs 45 to exec)
+
+    // test04
+    // Presidential: should sign and exec
+    title("test04");
+    Bureaucrat prezBoss("prezBoss", 1);
+    PresidentialPardonForm pardon1("Arthur Dent");
+    prezBoss.signAForm(pardon1);
+    prezBoss.executeForm(pardon1);
+
+    // test05
+    // Presidential: should sign, fail execute (needs 5 to exec)
+    title("test05");
+    Bureaucrat midManager("midManager", 10); // OK to sign (<=25), too low to exec (>5)
+    PresidentialPardonForm pardon2("Ford Prefect");
+    midManager.signAForm(pardon2);
+    midManager.executeForm(pardon2);
+
+    // test06
+    // Presidential: should fail to sign (needs 25 to sign)
+    title("test06");
+    Bureaucrat lowClerk("lowClerk", 50); // too low to sign
+    PresidentialPardonForm pardon3("Trillian");
+    lowClerk.signAForm(pardon3);
+    lowClerk.executeForm(pardon3);
+
 
     return 0;
 }
