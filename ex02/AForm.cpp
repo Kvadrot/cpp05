@@ -52,11 +52,11 @@ std::ostream& operator<<(std::ostream& os, const AForm& fo) {
 //Errors
 //
 const char* AForm::GradeTooHighException:: what() const throw() {
-    return "Grade in AForm is too high";
+    return "Grade is too high";
 }
 
 const char* AForm:: GradeTooLowException:: what() const throw() {
-    return "Grade in AForm is too low";
+    return "Grade is too low";
 }
 
 const char* AForm:: FormIsNotSignedException:: what() const throw() {

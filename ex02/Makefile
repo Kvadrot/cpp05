@@ -4,6 +4,7 @@ C++_FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = Bureaucrat.cpp\
 	  AForm.cpp\
 	  ShrubberyCreationForm.cpp\
+	  RobotomyRequestForm.cpp\
 	  main.cpp\
 
 OBJFILES = $(SRC:.cpp=.o)
